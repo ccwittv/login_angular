@@ -100,15 +100,15 @@
 
 		<p>
 			<label>Lenguajes de programacion:</label><br>
-			<input type="checkbox" name="lenguaje" ng-model="usuario.lenguaje" value="C"> C <br>
-			<input type="checkbox" name="lenguaje" ng-model="usuario.lenguaje" value="C#"> C# <br>
-			<input type="checkbox" name="lenguaje" ng-model="usuario.lenguaje" value="Javascript" checked> Javascript <br>
-			<input type="checkbox" name="lenguaje" ng-model="usuario.lenguaje" value="PHP"> PHP <br>
+			<input type="checkbox" name="lenguaje" ng-model="usuario.lenguaje.c" value="C"> C <br>
+			<input type="checkbox" name="lenguaje" ng-model="usuario.lenguaje.csharp" value="C#"> C# <br>
+			<input type="checkbox" name="lenguaje" ng-model="usuario.lenguaje.javascript" value="Javascript">Javascript <br>
+			<input type="checkbox" name="lenguaje" ng-model="usuario.lenguaje.php" value="PHP"> PHP <br>
 		</p>
 
 		<p>
 		  <a class="btn btn-info " ng-disabled="FormAlta.$dirty && FormAlta.$invalid && 
-		  FormAlta.password.minlength != 7 && FormAlta.password != FormAlta.copiapassword" ng-click="Login()" ><span class="glyphicon glyphicon-save">&nbsp;</span>Ingresar</a>
+		  FormAlta.password.minlength != 7 && FormAlta.password != FormAlta.copiapassword" ng-click="Registrar()" ><span class="glyphicon glyphicon-save">&nbsp;</span>Ingresar</a>
 		</p>
 
 		</form>

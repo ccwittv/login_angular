@@ -3,6 +3,8 @@
 	<title>Login Angular</title>
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 	<script SRC="bower_components/angular/angular.min.js" TYPE="text/javascript"></script>
+	<script src="bower_components/spin.js/spin.js"></script>
+    <script src="bower_components/angular-spinner/angular-spinner.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/estilo.css">
 	<link rel="stylesheet" type="text/css" href="css/animacion.css">
 	<script SRC="js/app.js" TYPE="text/javascript"></script>
@@ -41,6 +43,7 @@
 
 		<p>
 		  <a class="btn btn-info " ng-disabled="FormLogin.$dirty && FormLogin.$invalid && FormLogin.password.minlength != 7" ng-click="Login()" ><span class="glyphicon glyphicon-save">&nbsp;</span>Ingresar</a>
+		  <span us-spinner="{radius:30, width:8, length: 16}" spinner-key="spinner-1"></span>
 		</p>
 
 		</form>
