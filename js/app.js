@@ -1,5 +1,5 @@
 
-/*var app = angular.module('LoginAngular', ['angularSpinner']);
+var app = angular.module('LoginAngular', ['angularSpinner']);
 
 
 app.controller('controlLogin', function($scope,usSpinnerService,$rootScope) {
@@ -22,9 +22,9 @@ app.controller('controlLogin', function($scope,usSpinnerService,$rootScope) {
 		 usSpinnerService.stop('spinner-1');	   	  
 	  }
 
-});*/
+});
 
-var app = angular.module('LoginAngular',[]);
+/*var app = angular.module('LoginAngular',[]);
 
 
 app.controller('controlLogin', function($scope) {
@@ -40,7 +40,7 @@ app.controller('controlLogin', function($scope) {
     	console.log($scope.usuario);
     }
 
-});
+});*/
 
 app.controller('controlAlta', function($scope) {
 
