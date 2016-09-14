@@ -2,15 +2,17 @@
 <head>
 	<title>Login Angular</title>
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+<!--<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'>-->
 	<script SRC="bower_components/angular/angular.min.js" TYPE="text/javascript"></script>
-	<script src="bower_components/spin.js/spin.js"></script>
-    <script src="bower_components/angular-spinner/angular-spinner.js"></script>
+    <script src="bower_components/angular-spinners/dist/angular-spinners.js"></script>
+	<script src="bower_components/angular-spinners/dist/angular-spinners.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/estilo.css">
 	<link rel="stylesheet" type="text/css" href="css/animacion.css">
+	<link rel="stylesheet" type="text/css" href="css/estilo_giratorio.css">
 	<script SRC="js/app.js" TYPE="text/javascript"></script>
 
 </head>
-	<body ng-app="LoginAngular" ng-controller="controlLogin">
+<body ng-app="LoginAngular" ng-controller="controlLogin">
 	<ul class="nav nav-tabs">
 	     <li  class="btn btn-info animated bounceInLeft" >
 	     	<a href="index.html">
@@ -20,35 +22,49 @@
 	     </li>
 	</ul>
 	     
-	    <div class="container">
+	<div class="container">
 		<div class="page-header">
 			<center> <h1>Login Angular</h1>   </center>     
 		</div>
 
 		<div class="CajaInicio animated bounceInRight">
 			<h1>LOGIN</h1>
-			<form name="FormLogin" novalidate>
+			<form name="FormLogin" ng-show="!loggedIn && !loggedIncorrecto" class="well" novalidate>
+				<spinner name="html5spinner" ng-cloak="">
+		          <div class="overlay"></div>
+		          <div class="spinner">
+		            <div class="double-bounce1"></div>
+		            <div class="double-bounce2"></div>
+		          </div>
+		          <div class="please-wait">Please Wait...</div>
+		        </spinner>
+				<div class="form-group">
+					<input type="email" name="email" ng-model="usuario.email" placeholder="ingrese email" required>
+					<span ng-show="FormLogin.email.$error.required">El email es requerido</span>
+					<span ng-show="FormLogin.email.$error.email">El email es invalido</span>
+				</div>
 
-		<p>
-			<input type="email" name="email" ng-model="usuario.email" placeholder="ingrese email" required>
-			<span ng-show="FormLogin.email.$error.required">El email es requerido</span>
-			<span ng-show="FormLogin.email.$error.email">El email es invalido</span>
-		</p>
+				<div class="form-group">
+					<input type="password" name="password" ng-model="usuario.password" ng-minlength="7" placeholder="ingrese contrasena" required>
+					<span ng-show="FormLogin.password.$error.required">La contraseña es requerida</span>
+					<span ng-show="FormLogin.password.$error.minlength">La contraseña debe tener como minimo 7 caracteres</span>
+				</div>
 
-		<p>
-			<input type="password" name="password" ng-model="usuario.password" ng-minlength="7" placeholder="ingrese contrasena" required>
-			<span ng-show="FormLogin.password.$error.required">La contrasena es requerida</span>
-			<span ng-show="FormLogin.password.$error.minlength">La contrasena debe tener como minimo 7 caracteres</span>
-		</p>
-
-		<p>
-		  <a class="btn btn-info " ng-disabled="FormLogin.$dirty && FormLogin.$invalid && FormLogin.password.minlength != 7" ng-click="Login()" ><span class="glyphicon glyphicon-save">&nbsp;</span>Ingresar</a>
-		  <span us-spinner="{radius:30, width:8, length: 16}" spinner-key="spinner-1"></span>
-		</p>
-
-		</form>
+				<p>
+				<a class="btn btn-info " ng-disabled="FormLogin.$dirty && FormLogin.$invalid && FormLogin.password.minlength != 7" ng-click="$event.preventDefault(); Login();" ><span class="glyphicon glyphicon-save">&nbsp;</span>Ingresar</a>
+				</p>
+			</form>
+			<div ng-show="loggedIn" ng-cloak="" class="alert alert-success text-center">
+			  <span ng-click="loggedIn = false;" class="glyphicon glyphicon-remove pull-right"></span>
+        		<h2>Ingreso correcto!!!</h2>
+      		</div>
+      		<div ng-show="loggedIncorrecto" ng-cloak="" class="alert alert-danger text-center">
+			  <span ng-click="loggedIncorrecto = false;" class="glyphicon glyphicon-remove pull-right"></span>
+        		<h2>Ingreso INCORRECTO!!!</h2>
+      		</div>
 			
 		</div>
+	</div>    
 </body> 
 
 </body>

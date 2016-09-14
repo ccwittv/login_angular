@@ -1,33 +1,39 @@
 
-var app = angular.module('LoginAngular', ['angularSpinner']);
+var app = angular.module('LoginAngular', ['angularSpinners']);
 
 
-app.controller('controlLogin', function($scope,usSpinnerService,$rootScope) {
+app.controller('controlLogin', function($scope, $timeout, spinnerService) {
 
     $scope.usuario={};
     $scope.usuario.email = "fede@fede.com";
     $scope.usuario.password = "federico";
-    $scope.spinneractive = false;
 
-    $scope.Login=function(){
+    $scope.Login= function () {
+      console.log("login a retener:");
+      console.log($scope.usuario);
+      spinnerService.show('html5spinner');
+       if  (( $scope.usuario.email == "fede@fede.com" &&
+            $scope.usuario.password == "federico") ||
+            ( $scope.usuario.email == "cwitt@cwitt.com" &&
+            $scope.usuario.password == "1234567" ))
+         {
+            $timeout(function () {
+            spinnerService.hide('html5spinner');
+            $scope.loggedIn = true;}, 2500);
+         }
+        else
+         {
+            $timeout(function () {
+            spinnerService.hide('html5spinner');
+            $scope.loggedIncorrecto = true;}, 2500);
+         }             
+    };
+  });
 
-    	console.log("login a retener:");
-    	console.log($scope.usuario);
-        usSpinnerService.spin('spinner-1'); 
-        $scope.spinneractive = true;
-        if  (( $scope.usuario.email == "fede@fede.com" &&
-    		$scope.usuario.password == "federico") ||
-    		( $scope.usuario.email == "cwitt@cwitt.com" &&
-    		$scope.usuario.password == "123456" ))
-		 usSpinnerService.stop('spinner-1');	   	  
-	  }
-
-});
-
-/*var app = angular.module('LoginAngular',[]);
+//var app = angular.module('LoginAngular',[]);
 
 
-app.controller('controlLogin', function($scope) {
+/*app.controller('controlLogin', function($scope) {
 
     $scope.usuario={};
     $scope.usuario.email = "fede@fede.com";
