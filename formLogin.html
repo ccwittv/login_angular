@@ -51,7 +51,8 @@
 				</div>
 
 				<p>
-				<a class="btn btn-info " ng-disabled="FormLogin.$dirty && FormLogin.$invalid && FormLogin.password.minlength != 7" ng-click="$event.preventDefault(); Login();" ><span class="glyphicon glyphicon-save">&nbsp;</span>Ingresar</a>
+				<button class="btn btn-info " ng-disabled="FormLogin.$dirty && FormLogin.$invalid && FormLogin.password.minlength != 7" 
+				   ng-click=" Login();" ><span class="glyphicon glyphicon-save">&nbsp;</span>Ingresar</button>
 				</p>
 			</form>
 			<div ng-show="loggedIn" ng-cloak="" class="alert alert-success text-center">

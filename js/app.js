@@ -30,27 +30,9 @@ app.controller('controlLogin', function($scope, $timeout, spinnerService) {
     };
   });
 
-//var app = angular.module('LoginAngular',[]);
-
-
-/*app.controller('controlLogin', function($scope) {
-
-    $scope.usuario={};
-    $scope.usuario.email = "fede@fede.com";
-    $scope.usuario.password = "federico";
-    $scope.spinneractive = false;
-
-    $scope.Login=function(){
-
-    	console.log("login a retener:");
-    	console.log($scope.usuario);
-    }
-
-});*/
-
 app.controller('controlAlta', function($scope) {
 
-    $scope.usuario={};
+  $scope.usuario={};
 	$scope.usuario.nombre = "Juan";
 	$scope.usuario.apellido = "Gonzalez";
 	$scope.usuario.edad = 38;
